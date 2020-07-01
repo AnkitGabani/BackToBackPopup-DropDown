@@ -1,0 +1,34 @@
+pod 'DropDown', '2.3.4'
+
+
+import DropDown
+
+let dropDown = DropDown()
+var arrayPrice: [String] = []
+
+  func setDropDownCountryCode() {
+        
+        dropDown.dataSource = arrayPrice
+        dropDown.anchorView = viewTarget
+        dropDown.direction = .any
+        
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)")
+            
+            self.txtSelectedPrice.text = item
+            
+         
+        }
+        
+        dropDown.bottomOffset = CGPoint(x: 0, y: viewTarget.bounds.height)
+        dropDown.topOffset = CGPoint(x: 0, y: -viewTarget.bounds.height)
+        dropDown.dismissMode = .onTap
+        dropDown.textColor = UIColor.darkGray
+        dropDown.backgroundColor = UIColor.white
+        dropDown.selectionBackgroundColor = UIColor.clear
+        
+        dropDown.reloadAllComponents()
+    }
+    
+    
+    self.dropDown.show()
