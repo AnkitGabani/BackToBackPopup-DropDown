@@ -15,3 +15,13 @@
                                     self.navigationController?.popToViewController(controller, animated: true)
                                 }
                             }
+
+*****************************************
+
+let controllers = self.navigationController?.viewControllers
+        for vc in controllers! {
+                    if vc is SelectAccountTypeVC {
+                      _ = self.navigationController?.popToViewController(vc as! SelectAccountTypeVC, animated: true)
+                        
+                    }
+                 }
